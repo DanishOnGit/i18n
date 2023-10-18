@@ -1,0 +1,1 @@
+This is a demonstration of a basic i18n setup. No 3rd party library needed. Just useContext api
