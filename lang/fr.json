@@ -1,0 +1,15 @@
+{
+    "8zqwBn": {
+      "defaultMessage": "Aujourd'hui, c'est le {ts, date, ::yyyyMMdd}",
+      "description": "Todays date"
+    },
+    "9extUB": {
+      "defaultMessage": "Como estas?",
+      "description": "Greeting"
+    },
+    "tYRMz2": {
+      "defaultMessage": "Control' D' Panelle",
+      "description": "title of control panel section"
+    }
+  }
+  

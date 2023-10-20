@@ -8,10 +8,7 @@ export const Button = () => {
   return (
     <>
     <p>Count:{count}</p>
-      <button onClick={() => setCount((prev) => prev + 1)}>
-        {t("click")}
-      </button>
-      {t("helloWorld")}
+     
     </>
   );
 };

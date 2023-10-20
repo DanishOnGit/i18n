@@ -1,16 +1,15 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
-import engLanguage from "languages/en.json"
+import React, { createContext, useContext, useState } from 'react';
+import messagesJSON from "compiled-lang/en.json"
 export const LangContext=createContext();
 
 export const LangContextProvider=({children})=>{
     const [lang,setLang]=useState("en")
-    const [langJSON,setLangJSON]=useState(engLanguage)
-    return <LangContext.Provider value={{lang,setLang,langJSON,setLangJSON}}>
+    const [messages,setMessages]=useState(messagesJSON)
+    return <LangContext.Provider value={{lang,messages,setMessages,setLang}}>
         {children}
     </LangContext.Provider>
 }
 
 export const useLanguage=()=>{
-    const x = useContext(LangContext)
-    return x
+    return useContext(LangContext)
 }
