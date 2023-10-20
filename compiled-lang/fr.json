@@ -1,0 +1,33 @@
+{
+  "8zqwBn": [
+    {
+      "type": 0,
+      "value": "Aujourd'hui, c'est le "
+    },
+    {
+      "style": {
+        "parsedOptions": {
+          "day": "2-digit",
+          "month": "2-digit",
+          "year": "numeric"
+        },
+        "pattern": "yyyyMMdd",
+        "type": 1
+      },
+      "type": 3,
+      "value": "ts"
+    }
+  ],
+  "9extUB": [
+    {
+      "type": 0,
+      "value": "Comment vas-tu?"
+    }
+  ],
+  "tYRMz2": [
+    {
+      "type": 0,
+      "value": "Panneau de contrôle"
+    }
+  ]
+}

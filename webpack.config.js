@@ -33,7 +33,7 @@ module.exports = {
   resolve:{
     extensions:[".js",".jsx"],
     alias:{
-      languages:path.resolve(__dirname,"public/locales")
+      "compiled-lang":path.resolve(__dirname,"compiled-lang")
     }
   }
 };

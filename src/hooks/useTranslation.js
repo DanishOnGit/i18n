@@ -1,20 +1,27 @@
-import { useLanguage } from '../contexts/LanguageContext/LanguageContext';
+import { useLanguage } from "../contexts/LanguageContext/LanguageContext";
 
+export const useTranslation = () => {
+  const { setMessages,setLang } = useLanguage();
 
-export const useTranslation=()=>{
-    const {lang,setLang,langJSON,setLangJSON}=useLanguage()
-
-    const importLangJson=async(filename)=>{
-        const x = await import(`languages/${filename}.json`)
-        setLang(filename)
-        if(x.default){
-            setLangJSON(x.default)
+  async function loadLocaleData(locale) {
+    setLang(locale)
+    console.log({locale})
+    try {
+      switch (locale) {
+        case "fr": {
+          const messagesRes = await import("compiled-lang/fr.json");
+            setMessages(messagesRes)
+            return
         }
+        default: {
+            const messagesRes = await import("compiled-lang/en.json");
+          setMessages(messagesRes)
+        }
+      }
+    } catch (error) {
+      console.log(error);
     }
+  }
 
-    const t=(key)=>{
-        return langJSON[key]
-    }
-
-    return {importLangJson,t,lang}
-}
+  return { loadLocaleData };
+};

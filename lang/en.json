@@ -1,0 +1,14 @@
+{
+  "8zqwBn": {
+    "defaultMessage": "Today is {ts,date,::yyyyMMdd}",
+    "description": "Todays date"
+  },
+  "9extUB": {
+    "defaultMessage": "How are you?",
+    "description": "Greeting"
+  },
+  "tYRMz2": {
+    "defaultMessage": "Control Panel",
+    "description": "title of control panel section"
+  }
+}
