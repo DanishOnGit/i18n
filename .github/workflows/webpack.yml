@@ -38,7 +38,7 @@ jobs:
         run: echo "::set-output name=commit_id::$(git rev-parse HEAD)"
 
       - name: Create txt file
-      - run: mkdir public/dist
+        run: mkdir public/dist
 
       - name: Set latest commit id in the txt file
         run: echo "${{ steps.commit_id.outputs.commit_id }}" > public/dist/commit2.txt
