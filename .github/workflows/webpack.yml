@@ -2,9 +2,11 @@ name: NodeJS with Webpack
 
 on:
   push:
-    branches: [ "master" ]
+    branches:
+      - master
   pull_request:
-    branches: [ "master" ]
+    branches:
+      - master
 
 jobs:
   build:
@@ -15,35 +17,36 @@ jobs:
         node-version: [14.x, 16.x, 18.x]
 
     steps:
-    - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
 
-    - name: Build
-      run: |
-        npm install
-        npx webpack
+      - name: Build
+        run: |
+          npm install
+          npx webpack
 
-    - name: echo command
-      run: echo "hello world ji"
+      - name: echo command
+        run: echo "hello world ji"
 
       - name: Create commit.txt file
-      run: echo "Latest commit..." > commit.txt
+        run: echo "Latest commit..." > commit.txt
 
       - name: Get latest commit id
-      id: commit_id
-      run: echo "::set-output name=commit_id::$(git rev-parse HEAD)"
+        id: commit_id
+        run: echo "::set-output name=commit_id::$(git rev-parse HEAD)"
 
       - name: Set latest commit id in the txt file
-      run: echo "${{steps.commit_id.outputs.commit_id}}" > commit.txt
+        run: echo "${{ steps.commit_id.outputs.commit_id }}" > commit.txt
 
       - name: Commit and push
-      run: |
-        git config user.name DanishOnGit
-        git config user.email youcandoit1911@gmail.com
-        git add commit.txt
-        git commit -m "Update commit.txt with latest commit ID"
-        git push
+        run: |
+          git config user.name DanishOnGit
+          git config user.email youcandoit1911@gmail.com
+          git add commit.txt
+          git commit -m "Update commit.txt with latest commit ID"
+          git push
