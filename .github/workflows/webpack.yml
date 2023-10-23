@@ -29,3 +29,21 @@ jobs:
 
     - name: echo command
       run: echo "hello world ji"
+
+      - name: Create commit.txt file
+      run: echo "Latest commit..." > commit.txt
+
+      - name: Get latest commit id
+      id: commit_id
+      run : echo "::set-output name=commit_id::$(git rev-parse HEAD)"
+
+      - name: Set latest commit id in the txt file
+      run: echo "${{steps.commit_id.outputs.commit_id}}" > commit.txt
+
+      - name: Commit and push
+      run: |
+        git config user.name DanishOnGit
+        git config user.email youcandoit1911@gmail.com
+        git add commit.txt
+        git commit -m "Update commit.txt with latest commit ID"
+        git push
