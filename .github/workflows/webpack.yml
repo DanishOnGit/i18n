@@ -42,5 +42,12 @@ jobs:
 
       - name: Set latest commit id in the txt file
         run: echo "${{ steps.commit_id.outputs.commit_id }}" > public/dist/commit2.txt
-
+      
+      - name: Commit and push
+        run: |
+          git config user.name DanishOnGit
+          git config user.email youcandoit1911@gmail.com
+          git add public/dist/commit2.txt
+          git commit -m "Update commit2.txt with latest commit ID"
+          git push
       
