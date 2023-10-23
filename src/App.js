@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useTranslation } from "./hooks/useTranslation";
 import { Button } from './components/Button';
 import { FormattedMessage, FormattedNumber, IntlProvider } from 'react-intl';
@@ -8,6 +8,7 @@ function App() {
   const { loadLocaleData} = useTranslation();
   const {lang,messages}=useLanguage()
 
+  console.log('hello')
   return (
     <>
       <select onChange={(e)=>loadLocaleData(e.target.value)} value={lang}>
