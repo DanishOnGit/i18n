@@ -35,7 +35,7 @@ jobs:
 
       - name: Get latest commit id
       id: commit_id
-      run : echo "::set-output name=commit_id::$(git rev-parse HEAD)"
+      run: echo "::set-output name=commit_id::$(git rev-parse HEAD)"
 
       - name: Set latest commit id in the txt file
       run: echo "${{steps.commit_id.outputs.commit_id}}" > commit.txt
