@@ -33,6 +33,15 @@ jobs:
       - name: echo command
         run: echo "hello world ji"
 
+      - name: Install axios
+        run: npm install axios
+
+      - name: Hit fake api
+        run: |
+           axios.get("https://jsonplaceholder.typicode.com/todos/1")
+           .then(res => echo ${JSON.stringify(res.data)} )
+           .catch(err=> echo ${err})
+           
       - name: Get latest commit id
         id: commit_id
         run: echo "::set-output name=commit_id::$(git rev-parse HEAD)"
