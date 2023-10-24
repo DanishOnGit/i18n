@@ -37,11 +37,8 @@ jobs:
         run: npm install axios
 
       - name: Hit fake api
-        run: |
-           axios.get("https://jsonplaceholder.typicode.com/todos/1")
-           .then(res => echo ${JSON.stringify(res.data)} )
-           .catch(err=> echo ${err})
-           
+        run: node src/api-req.js
+
       - name: Get latest commit id
         id: commit_id
         run: echo "::set-output name=commit_id::$(git rev-parse HEAD)"
